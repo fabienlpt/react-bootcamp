@@ -1,6 +1,6 @@
 import { Button, H1, Input, Paragraph, XStack, YStack } from '@my/ui'
+import { HeaderComponent } from '../../components/header'
 import * as React from 'react'
-import { useLink } from 'solito/link'
 
 export function LoginScreen() {
   const [email, setEmail] = React.useState('')
@@ -23,24 +23,27 @@ export function LoginScreen() {
   }
 
   return (
-    <YStack f={1} jc="center" ai="center">
-      <XStack f={1} jc="center" ai="center" bg="#6750A4" w="100%" p="$1">
-        <H1 ta="center">SPACECRAFT</H1>
-      </XStack>
-      <YStack f={1} jc="space-around" ai="center" p="$6" bg="#ffffff">
-        <InputDemo placeholder="Email" value={email} setValue={setEmail} />
-        <InputDemo placeholder="Password" value={password} setValue={setPassword} />
-        <XStack>
-          <Button bg="#6750A4" col="#ffffff" w={250} h={30} br={50} onPress={onLogin}>
-            Login
-          </Button>
+    <>
+      <HeaderComponent />
+      <YStack f={1} jc="center" ai="center">
+        <XStack f={1} jc="center" ai="center" bg="#6750A4" w="100%" p="$1">
+          <H1 ta="center">SPACECRAFT</H1>
         </XStack>
+        <YStack f={1} jc="space-around" ai="center" p="$6" bg="#ffffff">
+          <InputDemo placeholder="Email" value={email} setValue={setEmail} />
+          <InputDemo placeholder="Password" value={password} setValue={setPassword} />
+          <XStack>
+            <Button bg="#6750A4" col="#ffffff" w={250} h={30} br={50} onPress={onLogin}>
+              Login
+            </Button>
+          </XStack>
 
-        <Paragraph ta="center" col="#A0A0A0">
-          by login you accept the Terms and Conditions.
-        </Paragraph>
+          <Paragraph ta="center" col="#A0A0A0">
+            by login you accept the Terms and Conditions.
+          </Paragraph>
+        </YStack>
       </YStack>
-    </YStack>
+    </>
   )
 }
 

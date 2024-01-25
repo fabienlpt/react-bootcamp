@@ -1,4 +1,5 @@
 import { LoginScreen } from 'app/features/login/screen'
+import { TermsScreen } from 'app/features/terms/screen'
 import { Stack } from 'expo-router'
 
 export default function Screen() {
@@ -9,7 +10,8 @@ export default function Screen() {
           title: 'Login',
         }}
       />
-      <LoginScreen />
+      {/* <LoginScreen /> */}
+      <TermsScreen />
     </>
   )
 }
