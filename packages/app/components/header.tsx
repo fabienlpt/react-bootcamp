@@ -14,7 +14,7 @@ export const HeaderComponent = () => {
 
   return (
     <Header>
-      <XStack f={1} jc="center" ai="center" bg="#6750A4" w="100%" p="$1" jc="flex-start">
+      <XStack f={1} jc="center" ai="center" bg="#6750A4" w="100%" py="$1" jc="flex-start">
         <Button {...link} icon={ChevronLeft} bg="transparent" col="#ffffff">
           Go Home
         </Button>

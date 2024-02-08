@@ -1,4 +1,4 @@
-import { H2, H3, Image, Paragraph, YStack } from '@my/ui'
+import { H2, H3, Image, Paragraph, ScrollView, YStack } from '@my/ui'
 import { HeaderComponent } from '../../components/header'
 import * as React from 'react'
 import { useQuery } from '@tanstack/react-query'
@@ -22,7 +22,7 @@ export const StarshipFeedScreen = () => {
     return <Paragraph>Something bad happened…</Paragraph>
   }
   return (
-    <YStack>
+    <ScrollView>
       <HeaderComponent />
       <YStack>
         <H2 m={20}>Starships</H2>
@@ -49,6 +49,6 @@ export const StarshipFeedScreen = () => {
           </YStack>
         ))}
       </YStack>
-    </YStack>
+    </ScrollView>
   )
 }

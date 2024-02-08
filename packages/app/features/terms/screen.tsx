@@ -1,4 +1,4 @@
-import { Button, H2, Input, Paragraph, Image, YStack } from '@my/ui'
+import { Button, H2, Input, Paragraph, Image, YStack, ScrollView } from '@my/ui'
 import { HeaderComponent } from '../../components/header'
 import * as React from 'react'
 
@@ -10,7 +10,7 @@ export const TermsScreen = () => {
   }
 
   return (
-    <YStack>
+    <ScrollView>
       <HeaderComponent />
       <YStack style={{ padding: 32 }}>
         <Paragraph style={{ marginBottom: 24 }}>
@@ -87,6 +87,6 @@ export const TermsScreen = () => {
 
         <Paragraph style={{ marginBottom: 128 }}>May the force be with you</Paragraph>
       </YStack>
-    </YStack>
+    </ScrollView>
   )
 }
