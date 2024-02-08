@@ -23,7 +23,6 @@ export const StarshipFeedScreen = () => {
   }
   return (
     <ScrollView>
-      <HeaderComponent />
       <YStack>
         <H2 m={20}>Starships</H2>
         {data.map((starship: any) => (

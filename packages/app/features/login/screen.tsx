@@ -1,6 +1,7 @@
 import { Button, H1, Input, Paragraph, XStack, YStack } from '@my/ui'
 import { HeaderComponent } from '../../components/header'
 import * as React from 'react'
+import { useLink } from 'solito/link'
 
 export function LoginScreen() {
   const [email, setEmail] = React.useState('')
@@ -14,17 +15,12 @@ export function LoginScreen() {
     console.log('email', password)
   }, [password])
 
-  const onLogin = () => {
-    if (!email || !password) {
-      return
-    }
-
-    window.location.href = '/user/nate'
-  }
+  const linkProps = useLink({
+    href: '/spacecraft',
+  })
 
   return (
     <>
-      <HeaderComponent />
       <YStack f={1} jc="center" ai="center">
         <XStack f={1} jc="center" ai="center" bg="#6750A4" w="100%" p="$1">
           <H1 ta="center">SPACECRAFT</H1>
@@ -33,7 +29,7 @@ export function LoginScreen() {
           <InputDemo placeholder="Email" value={email} setValue={setEmail} />
           <InputDemo placeholder="Password" value={password} setValue={setPassword} />
           <XStack>
-            <Button bg="#6750A4" col="#ffffff" w={250} h={30} br={50} onPress={onLogin}>
+            <Button {...linkProps} bg="#6750A4" col="#ffffff" w={250} h={30} br={50}>
               Login
             </Button>
           </XStack>

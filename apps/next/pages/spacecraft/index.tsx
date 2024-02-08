@@ -1,21 +1,17 @@
-import { LoginScreen } from 'app/features/login/screen'
-import { TermsScreen } from 'app/features/terms/screen'
 import { StarshipFeedScreen } from 'app/features/starship-feed/screen'
-import { Stack} from 'expo-router'
+import Head from 'next/head'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const queryClient = new QueryClient()
 
-export default function Screen() {
+export default function Page() {
   return (
     <>
-      <Stack.Screen
-        options={{
-          title: 'Login'
-        }}
-      />
+      <Head>
+        <title>SpaceCraft</title>
+      </Head>
       <QueryClientProvider client={queryClient}>
-        <LoginScreen />
+        <StarshipFeedScreen />
       </QueryClientProvider>
     </>
   )
