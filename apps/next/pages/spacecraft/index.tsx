@@ -1,6 +1,7 @@
 import { StarshipFeedScreen } from 'app/features/starship-feed/screen'
 import Head from 'next/head'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { HeaderComponent } from 'app/components/header'
 
 const queryClient = new QueryClient()
 
@@ -10,6 +11,7 @@ export default function Page() {
       <Head>
         <title>SpaceCraft</title>
       </Head>
+      <HeaderComponent />
       <QueryClientProvider client={queryClient}>
         <StarshipFeedScreen />
       </QueryClientProvider>
