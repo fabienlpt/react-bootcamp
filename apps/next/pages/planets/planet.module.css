@@ -1,0 +1,15 @@
+.planetContainer {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.planetName {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.planetCanvas {
+  width: 100%;
+  height: auto;
+}
