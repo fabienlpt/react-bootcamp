@@ -1,9 +1,10 @@
-import { HeaderComponent } from 'app/components/header'
+import { PlanetScreen } from 'app/features/planets/screen'
 import Head from 'next/head'
-import PlanetList from './planetList'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { HeaderComponent } from 'app/components/header'
 
 const queryClient = new QueryClient()
+
 export default function Page() {
   return (
     <>
@@ -12,7 +13,7 @@ export default function Page() {
       </Head>
       <HeaderComponent />
       <QueryClientProvider client={queryClient}>
-        <PlanetList />
+        <PlanetScreen />
       </QueryClientProvider>
     </>
   )

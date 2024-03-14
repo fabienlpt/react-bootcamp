@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import styles from './planet.module.css'
+import { YStack, Text } from '@my/ui'
+
 interface PlanetProps {
   name: string
   textureURL?: string
@@ -65,10 +66,12 @@ const Planet: React.FC<PlanetProps> = ({ name, textureURL }) => {
   }, [])
 
   return (
-    <div className={styles.planetContainer}>
-      <h2 className={styles.planetName}>{name}</h2>
-      <canvas ref={canvasRef} className={styles.planetCanvas} />
-    </div>
+    <YStack ai="center" jc="center" pos="relative" style={{ height: '100%' }}>
+      <Text size={20} weight="bold" style={{ position: 'absolute', zIndex: 1 }}>
+        {name}
+      </Text>
+      <canvas ref={canvasRef} style={{ width: '100%', height: 'auto', position: 'absolute' }} />
+    </YStack>
   )
 }
 

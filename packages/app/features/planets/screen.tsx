@@ -1,9 +1,7 @@
 import React from 'react'
 import Planet from './planet'
-import { Canvas } from '@react-three/fiber'
 import { useQuery } from '@tanstack/react-query'
-import { Paragraph } from '@my/ui'
-import styles from './PlanetList.module.css'
+import { Paragraph, YStack, Stack } from '@my/ui'
 
 async function getDataFromApi() {
   const result = await fetch(`https://swapi.py4e.com/api/planets/`)
@@ -11,7 +9,7 @@ async function getDataFromApi() {
   return data.results
 }
 
-const PlanetList = () => {
+export const PlanetScreen = () => {
   const { isLoading, isError, data } = useQuery({
     queryKey: ['StarshipFeedScreen'],
     queryFn: getDataFromApi,
@@ -25,14 +23,12 @@ const PlanetList = () => {
   }
   const rows = Math.ceil(data.length / 3)
   return (
-    <div className={styles.planetListContainer}>
-      {data.map((planet: any, index: number) => (
-        <div key={index} className={styles.planetItem}>
+    <Stack fw="wrap" jc="space-around" ai="flex-start" fd="row" mt={50}>
+      {data.map((planet, index) => (
+        <YStack key={index} w="40%" h={200} pos="relative">
           <Planet name={planet.name} />
-        </div>
+        </YStack>
       ))}
-    </div>
+    </Stack>
   )
 }
-
-export default PlanetList
