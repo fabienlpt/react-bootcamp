@@ -1,17 +1,17 @@
 import { PlanetScreen } from './planets/screen'
-import Head from 'next/head'
+import { Stack } from 'expo-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { HeaderComponent } from 'app/components/header'
 
 const queryClient = new QueryClient()
 
 export default function Page() {
   return (
     <>
-      <Head>
-        <title>SpaceCraft</title>
-      </Head>
-      <HeaderComponent />
+      <Stack.Screen
+        options={{
+          title: 'SpaceCraft',
+        }}
+      />
       <QueryClientProvider client={queryClient}>
         <PlanetScreen />
       </QueryClientProvider>

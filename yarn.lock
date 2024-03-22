@@ -9914,6 +9914,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-gl@npm:^13.6.0":
+  version: 13.6.0
+  resolution: "expo-gl@npm:13.6.0"
+  dependencies:
+    invariant: "npm:^2.2.4"
+  peerDependencies:
+    expo: "*"
+  checksum: 10/bff7e9f4fa1464efa14ff16cd75330e9a3b7b8c8d656595a66a3bf1d5260bc7f4d5c369eb416d7a9387e47b31e1fd623ef8ef749d140914a78c55af18e1f489d
+  languageName: node
+  linkType: hard
+
 "expo-head@npm:0.0.20":
   version: 0.0.20
   resolution: "expo-head@npm:0.0.20"
@@ -15268,6 +15279,7 @@ __metadata:
     check-dependency-version-consistency: "npm:^3.0.3"
     esbuild: "npm:^0.20.1"
     eslint: "npm:^8.21.0"
+    expo-gl: "npm:^13.6.0"
     expo-three: "npm:^7.0.0"
     node-gyp: "npm:^9.3.1"
     prettier: "npm:^2.7.1"

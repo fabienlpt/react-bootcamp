@@ -1,37 +1,26 @@
-import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { YStack, Text } from '@my/ui'
+import { ExpoWebGLRenderingContext, GLView } from 'expo-gl'
+import { Renderer } from 'expo-three'
 
-interface PlanetProps {
-  name: string
-  textureURL?: string
-}
-
-const Planet: React.FC<PlanetProps> = ({ name, textureURL }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    if (!canvasRef.current) return
-
-    const canvas = canvasRef.current
+const PlanetExpo = ({ name }) => {
+  const onContextCreate = (gl: ExpoWebGLRenderingContext) => {
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(
       75,
-      canvas.clientWidth / canvas.clientHeight,
+      gl.drawingBufferWidth / gl.drawingBufferHeight,
       0.1,
       1000
     )
-    camera.position.z = 2
-
+    camera.position.z = 1
+    const renderer = new Renderer({ gl })
+    renderer.setSize(gl.drawingBufferWidth, gl.drawingBufferHeight)
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
     scene.add(ambientLight)
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
     directionalLight.position.set(0, 1, 1)
     scene.add(directionalLight)
-
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true })
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight)
 
     const geometry = new THREE.SphereGeometry(1, 32, 32)
     const material = new THREE.MeshBasicMaterial({
@@ -46,7 +35,6 @@ const Planet: React.FC<PlanetProps> = ({ name, textureURL }) => {
       transparent: true,
       opacity: 0.8,
     })
-
     const cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial)
     scene.add(cloudMesh)
 
@@ -58,21 +46,20 @@ const Planet: React.FC<PlanetProps> = ({ name, textureURL }) => {
       sphere.rotation.y += 0.01
       cloudMesh.rotation.y += cloudRotationSpeedY
       cloudMesh.rotation.x += cloudRotationSpeedX
-
       renderer.render(scene, camera)
+      gl.endFrameEXP()
     }
-
     animate()
-  }, [])
+  }
 
   return (
     <YStack ai="center" jc="center" pos="relative" style={{ height: '100%' }}>
       <Text size={20} weight="bold" style={{ position: 'absolute', zIndex: 1 }}>
         {name}
       </Text>
-      <canvas ref={canvasRef} style={{ width: '100%', height: 'auto', position: 'absolute' }} />
+      <GLView style={{ flex: 1 }} onContextCreate={onContextCreate} />
     </YStack>
   )
 }
 
-export default Planet
+export default PlanetExpo

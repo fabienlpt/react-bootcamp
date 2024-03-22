@@ -1,5 +1,5 @@
 import React from 'react'
-import Planet from './planet'
+import PlanetNext from './planet-next'
 import { useQuery } from '@tanstack/react-query'
 import { Paragraph, YStack, Stack } from '@my/ui'
 
@@ -26,7 +26,7 @@ export const PlanetScreen = () => {
     <Stack fw="wrap" jc="space-around" ai="flex-start" fd="row" mt={50}>
       {data.map((planet, index) => (
         <YStack key={index} w="40%" h={200} pos="relative">
-          <Planet name={planet.name} />
+          <PlanetNext name={planet.name} />
         </YStack>
       ))}
     </Stack>
