@@ -17,7 +17,7 @@ export default function Screen() {
       <QueryClientProvider client={queryClient}>
         <StarshipFeedScreen />
       </QueryClientProvider>
-      <HeaderComponent />
+      <HeaderComponent styles={{ height: 70 }} />
     </>
   )
 }

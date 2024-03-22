@@ -6,7 +6,7 @@ import { useLink } from 'solito/link'
 
 const { useParam } = createParam<{ id: string }>()
 
-export const HeaderComponent = () => {
+export const HeaderComponent = ({ styles }) => {
   const [id] = useParam('id')
   const homeLink = useLink({
     href: '/',
@@ -19,7 +19,7 @@ export const HeaderComponent = () => {
   })
 
   return (
-    <Header>
+    <Header style={styles}>
       <XStack f={1} ai="center" bg="#6750A4" w="100%" py="$1" jc="space-between">
         <Button {...homeLink} bg="transparent" color="#ffffff">
           SpaceCraft
