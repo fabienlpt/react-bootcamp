@@ -87,9 +87,28 @@ You can also install the native library inside of `packages/app` if you want to 
 
 You may potentially want to have the native module transpiled for the next app. If you get error messages with `Cannot use import statement outside a module`, you may need to use `transpilePackages` in your `next.config.js` and add the module to the array there.
 
-### Deploying to Vercel
+### Avancée bootcamp
 
-- Root: `apps/next`
-- Install command to be `yarn set version stable && yarn install`
-- Build command: leave default setting
-- Output dir: leave default setting
+Étant donné que j'ai réalisé le bootcamp sur tamagui et non react Native avec expo, les données seront faussés, car je n'ai pas pu réaliser certaines étapes et d'autres ont été réalisé d'une manière différente.
+
+- [x] 1.1
+- [x] 1.2
+- [x] 1.3
+- [x] 1.4
+- [x] 1.5
+- [x] 2.1
+- [x] 2.2
+- [ ] 2.3
+- [x] 3.1
+- [x] 3.2
+- [x] 3.3
+- [ ] 3.4
+- [ ] 3.5
+- [ ] 4.1
+- [x] 4.2
+- [ ] 4.3
+- [x] 4.4
+- [ ] 5.1
+- [ ] 5.2
+- [ ] 5.3
+- [x] 5.4
